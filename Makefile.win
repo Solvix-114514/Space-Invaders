@@ -1,0 +1,28 @@
+# Project: Ì«¿ÕÇÖÂÔÕß(Space Invaders)
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o
+LINKOBJ  = main.o
+LIBS     = -L"E:/MinGW64/lib" -L"E:/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -mwindows
+INCS     = -I"E:/MinGW64/include" -I"E:/MinGW64/x86_64-w64-mingw32/include" -I"E:/MinGW64/lib/gcc/x86_64-w64-mingw32/15.1.0/include"
+CXXINCS  = -I"E:/MinGW64/include" -I"E:/MinGW64/x86_64-w64-mingw32/include" -I"E:/MinGW64/lib/gcc/x86_64-w64-mingw32/15.1.0/include"
+BIN      = "Ì«¿ÕÇÖÂÔÕß(Space Invaders).exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
